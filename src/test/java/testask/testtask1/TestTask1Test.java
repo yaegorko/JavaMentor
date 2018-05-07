@@ -11,7 +11,6 @@ import static org.junit.Assert.*;
 public class TestTask1Test {
 
     String data = "JavaMentor";
-    InputStream stdin = System.in;
     TestTask1 testTask1 = new TestTask1();
 
     @Test
