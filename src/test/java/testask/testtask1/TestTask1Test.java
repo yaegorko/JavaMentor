@@ -29,7 +29,7 @@ public class TestTask1Test {
     // тут запутался с потоками и как протестировать вывод в консоль.
     // решил просто вывести.
     @Test
-    public void ReadStringWithScannerAndDetermineNumberOfCharactersThenPrintResults() {
+    public void whenReadStringWithScannerAndDetermineNumberOfCharactersThenPrintResults() {
         System.setIn(new ByteArrayInputStream(data.getBytes()));
         testTask1.determineNumberOfCharacters(testTask1.readString());
         testTask1.printResults();

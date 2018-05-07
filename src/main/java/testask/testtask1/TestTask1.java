@@ -9,12 +9,14 @@ public class TestTask1 {
     private int numberOfCharacters;
 
     public String readString() {
-        scan = new Scanner(System.in);
-        return this.string = this.scan.nextLine();
+        this.scan = new Scanner(System.in);
+        this.string = this.scan.nextLine();
+        return this.string;
     }
 
-    public int determineNumberOfCharacters(String string){
-        return this.numberOfCharacters = string.length();
+    public int determineNumberOfCharacters(String string) {
+        this.numberOfCharacters = string.length();
+        return this.numberOfCharacters;
     }
 
     public void printResults() {
