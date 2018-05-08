@@ -14,17 +14,17 @@ public class ArrayOfEven {
     public void readNumbers() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String line = br.readLine();
-        String[] splitStringArray = line.split("\\,");
-        this.arrayOfNumbers = new int[splitStringArray.length];
+        String[] splitStringArray = line.split(",");
+        arrayOfNumbers = new int[splitStringArray.length];
         for (int i = 0; i < splitStringArray.length; i++) {
-            this.arrayOfNumbers[i] = Integer.parseInt(splitStringArray[i]);
+            arrayOfNumbers[i] = Integer.parseInt(splitStringArray[i]);
         }
     }
 
     public void printEven() {
-        for (int i = 0; i < this.arrayOfNumbers.length; i++) {
-            if (this.arrayOfNumbers[i] != 0 && this.arrayOfNumbers[i] % 2 == 0) {
-                System.out.println(this.arrayOfNumbers[i]);
+        for (int i = 0; i < arrayOfNumbers.length; i++) {
+            if (arrayOfNumbers[i] != 0 && arrayOfNumbers[i] % 2 == 0) {
+                System.out.println(arrayOfNumbers[i]);
             }
         }
     }

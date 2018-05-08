@@ -10,13 +10,13 @@ public class HumanArray {
 
     public void createHumanArray() {
         for (int i = 0; i < 10; i++) {
-            this.humans[i] = new Human(i, "name" + i);
+            humans[i] = new Human(i, "name" + i);
         }
     }
 
     public void humanSayHello() {
-        for (int i = 0; i < this.humans.length; i++) {
-            this.humans[i].sayHello();
+        for (int i = 0; i < humans.length; i++) {
+            humans[i].sayHello();
         }
     }
 }

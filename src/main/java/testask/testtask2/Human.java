@@ -18,6 +18,6 @@ public class Human {
     }
 
     public void sayHello() {
-        System.out.println(this.name + " hello!");
+        System.out.println(name + " hello!");
     }
 }
