@@ -10,7 +10,6 @@ public class APlusBTest {
     @Test
     public void test1() {
         assertThat(APlusB.doubleExpression(0.1d, 0.2d, 0.3d), is(true));
-        ;
     }
 
 }
