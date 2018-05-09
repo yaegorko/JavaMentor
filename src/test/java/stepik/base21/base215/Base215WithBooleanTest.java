@@ -1,6 +1,7 @@
-package stepik.base21;
+package stepik.base21.base215;
 
 import org.junit.Test;
+import stepik.base21.base215.Base215WithBoolean;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;

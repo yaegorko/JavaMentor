@@ -1,4 +1,4 @@
-package stepik.base21;
+package stepik.base21.base215;
 
 public class Base215WithBoolean {
     public static boolean booleanExpression(boolean a, boolean b, boolean c, boolean d) {
