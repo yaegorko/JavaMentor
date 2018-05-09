@@ -9,7 +9,7 @@ public class Base215 {
         int countOfTrue = 0;
 
         for (int i = 0; i < arguments.length; i++) {
-            if (arguments[i] == true) {
+            if (arguments[i]) {
                 countOfTrue++;
             }
         }
