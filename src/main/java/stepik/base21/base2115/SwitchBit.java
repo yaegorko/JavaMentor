@@ -15,7 +15,7 @@ public class SwitchBit {
         int result = 0;
 
         do {
-            string = value % 2 + "," + string;
+            string = string + value % 2 + ",";
             value = value / 2;
         } while (value >= 1);
 
@@ -26,16 +26,15 @@ public class SwitchBit {
             arrayOfNumbers[i] = Integer.parseInt(splitStringArray[i]);
         }
 
-        bitIndex = arrayOfNumbers.length - bitIndex;
-        if (arrayOfNumbers[bitIndex] == 0) {
+        if (arrayOfNumbers[--bitIndex] == 0) {
             arrayOfNumbers[bitIndex] = 1;
         } else {
             arrayOfNumbers[bitIndex] = 0;
         }
 
         int degreeOfTwo = 0;
-        for (int i = arrayOfNumbers.length - 1; i >= 0; i--) {
 
+        for (int i = 0; i < arrayOfNumbers.length; i++) {
             if (arrayOfNumbers[i] == 1) {
                 result = (int) (Math.pow(2, arrayOfNumbers[i] * degreeOfTwo) + result);
             }
