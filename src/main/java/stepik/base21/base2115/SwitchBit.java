@@ -4,7 +4,6 @@ public class SwitchBit {
 
     /**
      * Flips one bit of the given <code>value</code>.
-     *
      * @param value     any number
      * @param bitIndex  index of the bit to flip, 1 <= bitIndex <= 32
      * @return new value with one bit flipped
@@ -34,9 +33,9 @@ public class SwitchBit {
 
         int degreeOfTwo = 0;
 
-        for (int i = 0; i < arrayOfNumbers.length; i++) {
-            if (arrayOfNumbers[i] == 1) {
-                result = (int) (Math.pow(2, arrayOfNumbers[i] * degreeOfTwo) + result);
+        for (int arrayOfNumber : arrayOfNumbers) {
+            if (arrayOfNumber == 1) {
+                result = (int) (Math.pow(2, arrayOfNumber * degreeOfTwo) + result);
             }
             degreeOfTwo++;
         }
