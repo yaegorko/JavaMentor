@@ -10,37 +10,30 @@ public class SwitchBit {
      */
     public static int flipBit(int value, int bitIndex) {
 
-        String string = "";
-        int result = 0;
-
-        do {
-            string = string + value % 2 + ",";
-            value = value / 2;
-        } while (value >= 1);
-
-        String[] splitStringArray = string.split(",");
-
-        int[] arrayOfNumbers = new int[splitStringArray.length];
-        for (int i = 0; i < splitStringArray.length; i++) {
-            arrayOfNumbers[i] = Integer.parseInt(splitStringArray[i]);
-        }
-
-        if (arrayOfNumbers[--bitIndex] == 0) {
-            arrayOfNumbers[bitIndex] = 1;
-        } else {
-            arrayOfNumbers[bitIndex] = 0;
-        }
-
-        int degreeOfTwo = 0;
-
-        for (int arrayOfNumber : arrayOfNumbers) {
-            if (arrayOfNumber == 1) {
-                result = (int) (Math.pow(2, arrayOfNumber * degreeOfTwo) + result);
-            }
-            degreeOfTwo++;
-        }
-
-        return result;
-        // put your implementation here
+//        int result = 0;
+//
+//        int[] arrayOfBits = new int[Integer.valueOf(value).BYTES];
+//        int position = 0;
+//
+//        do {
+//            arrayOfBits[position++] = value % 2;
+//            value /= 2;
+//        } while (value >= 1);
+//
+//        if (bitIndex > 0 && arrayOfBits[--bitIndex] == 0) {
+//            arrayOfBits[bitIndex] = 1;
+//        } else if (bitIndex > 0 && arrayOfBits[--bitIndex] == 1) {
+//            arrayOfBits[bitIndex] = 0;
+//        }
+//
+//        int degreeOfTwo = 0;
+//
+//        for (int arrayOfNumber : arrayOfBits) {
+//            if (arrayOfNumber == 1) {
+//                result = (int) (Math.pow(2, arrayOfNumber * degreeOfTwo) + result);
+//            }
+//            degreeOfTwo++;
+//        }
+        return value ^ (1 << (bitIndex - 1));
     }
 }
