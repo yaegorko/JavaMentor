@@ -10,30 +10,6 @@ public class SwitchBit {
      */
     public static int flipBit(int value, int bitIndex) {
 
-//        int result = 0;
-//
-//        int[] arrayOfBits = new int[Integer.valueOf(value).BYTES];
-//        int position = 0;
-//
-//        do {
-//            arrayOfBits[position++] = value % 2;
-//            value /= 2;
-//        } while (value >= 1);
-//
-//        if (bitIndex > 0 && arrayOfBits[--bitIndex] == 0) {
-//            arrayOfBits[bitIndex] = 1;
-//        } else if (bitIndex > 0 && arrayOfBits[--bitIndex] == 1) {
-//            arrayOfBits[bitIndex] = 0;
-//        }
-//
-//        int degreeOfTwo = 0;
-//
-//        for (int arrayOfNumber : arrayOfBits) {
-//            if (arrayOfNumber == 1) {
-//                result = (int) (Math.pow(2, arrayOfNumber * degreeOfTwo) + result);
-//            }
-//            degreeOfTwo++;
-//        }
         return value ^ (1 << (bitIndex - 1));
     }
 }
