@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class PalindromeTest {
 
     @Test
-    public void test1() {
+    public void testWhenWeHavePalindromeThanGetTrue() {
         assertThat(Palindrome.isPalindrome("Madam, I'm Adam!"), is(true));
     }
 }
