@@ -16,4 +16,11 @@ public class SwitchBitTest {
     public void whenSwitchFirstBitInZeroThenGetOne() {
        assertThat(SwitchBit.flipBit(0, 1), is(1));
     }
+
+    @Test
+    public void whenSwitchFirstBitInOneThenGetZero() {
+        assertThat(SwitchBit.flipBit(1, 1), is(0));
+    }
+
+
 }
