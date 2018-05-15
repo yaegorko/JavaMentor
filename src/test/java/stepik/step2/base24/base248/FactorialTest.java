@@ -9,6 +9,8 @@ import static org.junit.Assert.*;
 
 public class FactorialTest {
 
+    Factorial factorial = new Factorial();
+
     @Test
     public void whenWeTryGetZeroFactorialThanGetOne() {
         assertThat(Factorial.factorial(0), is(BigInteger.valueOf(1)));
