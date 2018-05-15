@@ -6,6 +6,9 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class Base215ShortTest {
+
+    Base215Short base215Short = new Base215Short();
+
     @Test
     public void test0011() {
         assertThat(Base215Short.booleanExpression(false, false, true, true), is(true));
