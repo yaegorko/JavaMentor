@@ -1,4 +1,4 @@
-package stepik.step3.oop3312;
+package stepik.step3.oop33.oop3312;
 
 public class Robot {
 
@@ -27,7 +27,7 @@ public class Robot {
     public void turnLeft() {
         switch (getDirection()) {
             default:
-            case DOWN: direction = Direction.LEFT;
+            case DOWN: direction = Direction.RIGHT;
                 break;
             case UP: direction = Direction.LEFT;
                 break;

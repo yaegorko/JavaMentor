@@ -22,5 +22,8 @@ public class SwitchBitTest {
         assertThat(SwitchBit.flipBit(1, 1), is(0));
     }
 
-
+    @Test
+    public void test() {
+        System.out.println(SwitchBit.flipBit(45, 5));
+    }
 }

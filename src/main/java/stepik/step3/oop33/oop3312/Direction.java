@@ -1,4 +1,4 @@
-package stepik.step3.oop3312;
+package stepik.step3.oop33.oop3312;
 
 public enum Direction {
     UP,

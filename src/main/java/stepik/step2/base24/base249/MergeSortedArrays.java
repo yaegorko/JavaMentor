@@ -18,7 +18,6 @@ public class MergeSortedArrays {
                 break;
             }
         }
-
         return mergedArray;
     }
 }

@@ -5,4 +5,5 @@ public class Base215WithBoolean {
        return (a || c || d) && (a || b || c) && (b || c || d) && (a || b || d)
                && (!b || !c || !d) && (!a || !c || !d) && (!a || !b || !d) && (!a || !b || !c);
     }
+
 }

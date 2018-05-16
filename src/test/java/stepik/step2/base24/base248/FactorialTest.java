@@ -23,6 +23,7 @@ public class FactorialTest {
 
     @Test
     public void whenWeTryGet13FactorialThanGetTwo() {
+        System.out.println(Factorial.factorial(5));
         assertThat(Factorial.factorial(13), is(new BigInteger("6227020800")));
     }
 }
