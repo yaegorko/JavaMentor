@@ -38,7 +38,7 @@ public class Base215ShortTest {
     public void test1100() {
         assertThat(Base215Short.booleanExpression(true, true, false, false), is(true));
     }
-    //false tests
+    //false oop34
     @Test
     public void test0000() {
         assertThat(Base215Short.booleanExpression(false, false, false, false), is(false));

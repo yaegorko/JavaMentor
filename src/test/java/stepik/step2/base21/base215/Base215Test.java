@@ -7,7 +7,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class Base215Test {
-
+    Base215 base215 = new Base215();
     @Test
     public void test1() {
         assertThat(Base215.booleanExpression(false, false, false, false), is(false));
