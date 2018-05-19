@@ -53,12 +53,8 @@ public final class ComplexNumber {
     @Override
     public int hashCode() {
         int result = 17;
-        long reLong = Double.doubleToLongBits(re);
-        long inLong = Double.doubleToLongBits(im);
-        result = 31 * result + (int) ((reLong ^ (reLong >>> 32)));
-        result = 31 * result + (int) ((inLong ^ (inLong >>> 32)));
+        result = 31 * result + Double.hashCode(im);
+        result = 31 * result + Double.hashCode(re);
         return result;
     }
 }
-
-
