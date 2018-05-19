@@ -19,12 +19,12 @@ public class CheckerTest {
     }
 
     @Test
-    public void whenHaveNegativeInTextThanGetLabelNEGATIVE_TEXT() {
+    public void whenHaveNegativeInTextThanGetLabelNEGATIVETEXT() {
         assertThat(checker.checkLabels(analyzers, "Hi! i am not happy today :(!"), is(Label.NEGATIVE_TEXT));
     }
 
     @Test
-    public void whenHaveToLongTextThanGetLabelTOO_LONG() {
+    public void whenHaveToLongTextThanGetLabelTOOLONG() {
         assertThat(checker.checkLabels(analyzers, "bla bla bla bla bla bla bla bla bla bla bla bla "), is(Label.TOO_LONG));
     }
 
