@@ -1,6 +1,5 @@
 package stepik.step3.oop35.oop358;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
 public class AsciiCharSequence implements CharSequence {
