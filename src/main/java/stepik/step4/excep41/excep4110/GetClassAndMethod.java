@@ -2,7 +2,6 @@ package stepik.step4.excep41.excep4110;
 
 public class GetClassAndMethod {
 
-
     public static void anotherMethod() {
         System.out.println(getCallerClassAndMethodName());
     }

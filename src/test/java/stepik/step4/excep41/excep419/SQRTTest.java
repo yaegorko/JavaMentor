@@ -7,6 +7,8 @@ import static org.junit.Assert.*;
 
 public class SQRTTest {
 
+    SQRT sqrt = new SQRT();
+
     @Test
     public void whenTryGetSqrtFromPositiveNumber() {
         assertThat(SQRT.sqrt(4), is(2d));
