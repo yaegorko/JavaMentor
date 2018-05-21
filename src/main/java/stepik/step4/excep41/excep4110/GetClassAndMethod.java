@@ -14,8 +14,9 @@ public class GetClassAndMethod {
             String className = element.getClassName();
             String methodName = element.getMethodName();
             result = className + "#" + methodName;
-        } else return null;
-
+        } else {
+            return null;
+        }
         return result;
     }
 }
