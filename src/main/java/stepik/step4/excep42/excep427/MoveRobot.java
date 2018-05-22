@@ -2,27 +2,45 @@ package stepik.step4.excep42.excep427;
 
 public class MoveRobot {
 
+//    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
+//
+//        boolean isTryCompleted = false;
+//        int count = 0 ;
+//        while(!isTryCompleted && count < 3) {
+//        try(RobotConnection connection = robotConnectionManager.getConnection()) {
+//                connection.moveRobotTo(toX, toY);
+//                isTryCompleted = true;
+//        } catch (RobotConnectionException e) {
+//                count++;
+//            }
+//        }
+//        if(!isTryCompleted) {
+//            throw new RobotConnectionException ("");
+//        }
+//    }
+
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
 
+        RobotConnection connection = null;
         boolean isTryCompleted = false;
-        int i = 0;
-        while (true) {
-            try(RobotConnection connection = robotConnectionManager.getConnection()) {
-               connection.moveRobotTo(toX, toY);
-               isTryCompleted = true;
+        int count = 0 ;
+        while(!isTryCompleted && count < 3) {
+            try {
+                count++;
+                connection = robotConnectionManager.getConnection();
+                connection.moveRobotTo(toX, toY);
+                isTryCompleted = true;
             } catch (RobotConnectionException e) {
-                if (isTryCompleted) {
-                    return;
-                } else if (i < 3) {
-                    i++;
-                } else if (i == 3) {
-                    throw new RobotConnectionException("");
+                if (count == 3) {
+                    throw e;
                 }
-            } catch (Exception t) {
-                throw new RobotConnectionException("", t);
+            } finally {
+                try {
+                    connection.close();
+                } catch (Exception npe) {
+
+                }
             }
         }
     }
 }
-
-
