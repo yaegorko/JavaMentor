@@ -23,8 +23,8 @@ public class MoveRobot {
 
         RobotConnection connection = null;
         boolean isTryCompleted = false;
-        int count = 0 ;
-        while(!isTryCompleted && count < 3) {
+        int count = 0;
+        while (!isTryCompleted && count < 3) {
             try {
                 count++;
                 connection = robotConnectionManager.getConnection();
