@@ -25,14 +25,14 @@ public class Thief implements MailService {
     @Override
     public Sendable processMail(Sendable mail) {
 
-        if (mail.getClass() == MailPackage.class && ((MailPackage) mail).getContent().getPrice() > packPrice) {
+        if (mail.getClass() == MailPackage.class && ((MailPackage) mail).getContent().getPrice() >= packPrice) {
             getStolenValue(((MailPackage) mail).getContent().getPrice());
             mail = new MailPackage(mail.getFrom(), mail.getTo(), new Package("stones instead of " + ((MailPackage) mail).getContent().getContent(), 0));
         }
         return mail;
     }
 
-    private int getStolenValue(int value) {
+    public int getStolenValue(int value) {
         valueOfTheStolenGoods += value;
         return valueOfTheStolenGoods;
     }
