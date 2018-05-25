@@ -12,10 +12,16 @@ import stepik.step4.excep43.excep439.packages.Sendable;
  */
 public class UntrustworthyMailWorker implements MailService {
 
+
+    private RealMailService realMailService = new RealMailService();;
     private MailService[] mailServices;
 
-    public UntrustworthyMailWorker() {
-        this.mailServices = new MailService[]{new Spy(), new Thief(1000), new Inspector(), new RealMailService()};
+    public UntrustworthyMailWorker(MailService[] mailServices) {
+        this.mailServices = mailServices;
+    }
+
+    public RealMailService getRealMailService() {
+        return realMailService;
     }
 
     @Override
@@ -23,6 +29,9 @@ public class UntrustworthyMailWorker implements MailService {
         for (MailService service : mailServices) {
             service.processMail(mail);
         }
+
+        realMailService.processMail(mail);
         return mail;
     }
+
 }

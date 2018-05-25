@@ -6,19 +6,19 @@ import stepik.step4.excep43.excep439.packages.Sendable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Spy extends RealMailService {
+public class Spy implements MailService {
 
     public static final String AUSTIN_POWERS = "Austin Powers";
 
     Logger spyLogger;
 
-    public Spy() {
-        this.spyLogger = Logger.getLogger(Spy.class.getName());
-        this.spyLogger.setLevel(Level.INFO);
+    public Spy(Logger logger) {
+        this.spyLogger = logger;
     }
 
     @Override
     public Sendable processMail(Sendable mail) {
+        this.spyLogger.setLevel(Level.INFO);
         if (mail.getClass() == MailMessage.class && (mail.getFrom() == AUSTIN_POWERS || mail.getTo() == AUSTIN_POWERS)) {
             spyLogger.log(Level.WARNING, "Detected target mail correspondence: from {0} to {1} \"{2}\"", new String[]{mail.getFrom(), mail.getTo(), ((MailMessage) mail).getMessage()});
         } else if (mail.getClass() == MailMessage.class) {

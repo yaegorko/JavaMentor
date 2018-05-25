@@ -19,24 +19,13 @@ public class Inspector implements MailService {
         if (mail.getClass() == MailPackage.class
                 && (((MailPackage) mail).getContent().getContent().equals("weapons")
                     || ((MailPackage) mail).getContent().getContent().equals("banned substance"))) {
-            throw new IllegalPackageException("find: " + ((MailPackage) mail).getContent().getContent());
+            throw new IllegalPackageException();
         } else if (mail.getClass() == MailPackage.class && (((MailPackage) mail).getContent().getContent().contains("stones"))) {
-            throw new StolenPackageException("find: " + ((MailPackage) mail).getContent().getContent());
+            throw new StolenPackageException();
         }
 
         return mail;
     }
-
-
-
-
-    static class StolenPackageException extends RuntimeException {
-        public StolenPackageException(String message) {
-            super(message);
-        }
-    }
-
-
 }
 
 

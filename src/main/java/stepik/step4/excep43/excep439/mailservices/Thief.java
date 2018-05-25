@@ -22,18 +22,19 @@ public class Thief implements MailService {
         this.packPrice = packPrice;
     }
 
+    public int getStolenValue() {
+        return valueOfTheStolenGoods;
+    }
+
     @Override
     public Sendable processMail(Sendable mail) {
 
         if (mail.getClass() == MailPackage.class && ((MailPackage) mail).getContent().getPrice() >= packPrice) {
-            getStolenValue(((MailPackage) mail).getContent().getPrice());
+            valueOfTheStolenGoods += ((MailPackage) mail).getContent().getPrice();
             mail = new MailPackage(mail.getFrom(), mail.getTo(), new Package("stones instead of " + ((MailPackage) mail).getContent().getContent(), 0));
         }
         return mail;
     }
 
-    public int getStolenValue(int value) {
-        valueOfTheStolenGoods += value;
-        return valueOfTheStolenGoods;
-    }
+
 }
