@@ -5,17 +5,17 @@ public class MoveRobot {
 //    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
 //
 //        boolean isTryCompleted = false;
-//        int count = 0 ;
-//        while(!isTryCompleted && count < 3) {
-//        try(RobotConnection connection = robotConnectionManager.getConnection()) {
+//        int count = 0;
+//        while (!isTryCompleted && count < 3) {
+//            try (RobotConnection connection = robotConnectionManager.getConnection()) {
 //                connection.moveRobotTo(toX, toY);
 //                isTryCompleted = true;
-//        } catch (RobotConnectionException e) {
+//            } catch (RobotConnectionException e) {
 //                count++;
 //            }
 //        }
-//        if(!isTryCompleted) {
-//            throw new RobotConnectionException ("");
+//        if (!isTryCompleted) {
+//            throw new RobotConnectionException("");
 //        }
 //    }
 

@@ -29,12 +29,13 @@ public class Thief implements MailService {
     @Override
     public Sendable processMail(Sendable mail) {
 
-        if (mail.getClass() == MailPackage.class && ((MailPackage) mail).getContent().getPrice() >= packPrice) {
-            valueOfTheStolenGoods += ((MailPackage) mail).getContent().getPrice();
-            mail = new MailPackage(mail.getFrom(), mail.getTo(), new Package("stones instead of " + ((MailPackage) mail).getContent().getContent(), 0));
+        Package content = ((MailPackage) mail).getContent();
+
+        if (mail.getClass() == MailPackage.class && content.getPrice() >= packPrice) {
+            valueOfTheStolenGoods += content.getPrice();
+            content = new Package("stones instead of " + content.getContent(), 0);
+            mail = new MailPackage(mail.getFrom(), mail.getTo(), content);
         }
         return mail;
     }
-
-
 }

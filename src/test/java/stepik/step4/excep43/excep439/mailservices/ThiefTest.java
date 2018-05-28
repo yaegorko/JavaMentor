@@ -23,7 +23,7 @@ public class ThiefTest {
     public void whenThiefStillContentFromMailPackThenPriceZero() {
         mailPackage = (MailPackage) thief.processMail(mailPackage);
         assertThat(mailPackage.getContent().getContent().contains("stones instead of "), is(true));
-        assertThat(mailPackage.getContent().getPrice() , is(0));
+        assertThat(mailPackage.getContent().getPrice(), is(0));
     }
 
     @Test
@@ -37,6 +37,6 @@ public class ThiefTest {
     public void whenThiefStillContentFromTwoPackageThenGetSum() {
         mailPackage = (MailPackage) thief.processMail(mailPackage);
         secondExpensiveMailPackage = (MailPackage) thief.processMail(secondExpensiveMailPackage);
-        assertThat(thief.getStolenValue(0), is(220000));
+        assertThat(thief.getStolenValue(), is(220000));
     }
 }

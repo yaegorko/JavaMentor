@@ -19,7 +19,7 @@ public class Spy implements MailService {
     @Override
     public Sendable processMail(Sendable mail) {
         this.spyLogger.setLevel(Level.INFO);
-        if (mail.getClass() == MailMessage.class && (mail.getFrom() == AUSTIN_POWERS || mail.getTo() == AUSTIN_POWERS)) {
+        if (mail.getClass() == MailMessage.class && (AUSTIN_POWERS.equals(mail.getFrom()) || AUSTIN_POWERS.equals(mail.getTo()))) {
             spyLogger.log(Level.WARNING, "Detected target mail correspondence: from {0} to {1} \"{2}\"", new String[]{mail.getFrom(), mail.getTo(), ((MailMessage) mail).getMessage()});
         } else if (mail.getClass() == MailMessage.class) {
             spyLogger.log(Level.INFO, "Usual correspondence: from {0} to {1}", new String[]{mail.getFrom(), mail.getTo()});

@@ -1,6 +1,7 @@
 package stepik.step4.excep43.excep439.mailservices;
 
 import stepik.step4.excep43.excep439.packages.MailPackage;
+import stepik.step4.excep43.excep439.packages.Package;
 import stepik.step4.excep43.excep439.packages.Sendable;
 
 /**
@@ -13,19 +14,21 @@ import stepik.step4.excep43.excep439.packages.Sendable;
 
 public class Inspector implements MailService {
 
+    public static final String WEAPONS = "weapons";
+    public static final String BANNED_SUBSTANCE = "banned substance";
+
     @Override
     public Sendable processMail(Sendable mail) {
 
+        Package content = ((MailPackage) mail).getContent();
+
         if (mail.getClass() == MailPackage.class
-                && (((MailPackage) mail).getContent().getContent().equals("weapons")
-                    || ((MailPackage) mail).getContent().getContent().equals("banned substance"))) {
+                && (WEAPONS.equals(content.getContent()) || (BANNED_SUBSTANCE.equals(content.getContent())))) {
             throw new IllegalPackageException();
-        } else if (mail.getClass() == MailPackage.class && (((MailPackage) mail).getContent().getContent().contains("stones"))) {
+        } else if (mail.getClass() == MailPackage.class && (content.getContent().contains("stones"))) {
             throw new StolenPackageException();
         }
 
         return mail;
     }
 }
-
-
