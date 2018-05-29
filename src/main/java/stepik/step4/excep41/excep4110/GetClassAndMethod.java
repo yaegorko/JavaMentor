@@ -2,14 +2,6 @@ package stepik.step4.excep41.excep4110;
 
 public class GetClassAndMethod {
 
-    public static void main(String[] args) {
-
-        System.out.println(getCallerClassAndMethodName());
-        anotherMethod();
-    }
-
-
-
     public static void anotherMethod() {
         System.out.println(getCallerClassAndMethodName());
     }
@@ -28,6 +20,7 @@ public class GetClassAndMethod {
 //        }
 //        return result;
 //    }
+
     public static String getCallerClassAndMethodName() {
         String result = null;
         Exception exception = new Exception();
