@@ -14,10 +14,11 @@ public class ByteToString {
         final char[] buffer = new char[bufferSize];
         final StringBuilder out = new StringBuilder();
         try (Reader in = new InputStreamReader(inputStream, charset)) {
-            for (; ; ) {
+            while (true) {
                 int rsz = in.read(buffer, 0, buffer.length);
-                if (rsz < 0)
+                if (rsz < 0) {
                     break;
+                }
                 out.append(buffer, 0, rsz);
             }
 
