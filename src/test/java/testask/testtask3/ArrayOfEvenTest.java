@@ -23,7 +23,7 @@ public class ArrayOfEvenTest {
     }
 
     @Test
-    public void whenCreateStringThenCheckArrayLength() throws IOException {
+    public void whenCreateStringThenCheckArrayLength() {
 
         assertThat(this.arrayOfEven.getArrayOfNumbers().length, is(7));
     }
