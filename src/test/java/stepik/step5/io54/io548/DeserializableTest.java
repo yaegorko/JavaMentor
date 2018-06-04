@@ -27,6 +27,7 @@ public class DeserializableTest {
 
     @Test
     public void whenWriteAnimal() throws IOException {
+        oos.writeInt(1);
         oos.writeObject(animal);
         byte[] animalsByte = baos.toByteArray();
         oos.flush();
@@ -47,7 +48,7 @@ public class DeserializableTest {
         assertThat(animals[1].getName(), is("Dog"));
     }
 
-    @Test(expected = ClassCastException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void whenWriteDouble() throws IOException {
         Double d = Double.parseDouble("2");
         oos.writeObject(d);
