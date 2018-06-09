@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         Main main = new Main();
-        System.out.format("%f", main.sum());
+        System.out.format("%.6f", main.sum());
     }
 
     public double sum() {

@@ -6,9 +6,7 @@ import java.io.ObjectInputStream;
 
 
 public class Deserializable {
-    /*
-    Почему не readObject()?
-     */
+
     public static Animal[] deserializeAnimalArray(byte[] data) {
         try (ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data))) {
             int length = ois.readInt();
@@ -17,11 +15,7 @@ public class Deserializable {
                 animals[i] = (Animal) ois.readObject();
             }
             return animals;
-        } catch (ClassCastException e) {
-            throw new IllegalArgumentException();
-        } catch (ClassNotFoundException e) {
-            throw new IllegalArgumentException();
-        } catch (IOException ex) {
+        } catch (ClassCastException | ClassNotFoundException | IOException ex) {
             throw new IllegalArgumentException();
         }
     }
