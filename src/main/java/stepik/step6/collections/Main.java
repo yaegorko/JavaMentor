@@ -1,27 +1,35 @@
 package stepik.step6.collections;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
+    public static void main(String[] args) throws IOException, NullPointerException {
 
-
-    public static void main(String[] args) throws IOException {
-        Main main = new Main();
-        main.method();
-    }
-
-    public void method() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String string = br.readLine();
-        List<String> items = Arrays.asList(string.split(" "));
-        for (int i = 0; i < items.size(); i++) {
-            items.remove(i);
+        Iterator iterator = readAndSort().descendingIterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + " ");
         }
     }
 
+    public static ArrayDeque readAndSort() throws IOException, NullPointerException {
+        ArrayDeque arrayDeque = new ArrayDeque();
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.hasNextLine()) {
+            Scanner input = new Scanner(scanner.nextLine());
+            int element;
+            int count = 1;
+            while (input.hasNextInt()) {
+                element = input.nextInt();
+                if (count % 2 == 0) {
+                    arrayDeque.add(element);
+                }
+                count++;
+            }
+            return arrayDeque;
+        } else {
+            return arrayDeque;
+        }
+    }
 }

@@ -5,6 +5,11 @@ import org.junit.Test;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+
+import static org.junit.Assert.assertEquals;
+
 
 public class MainTest {
 
@@ -16,7 +21,11 @@ public class MainTest {
     @Test
     public void test() throws IOException {
         System.setIn(inputStream);
-        main.method();
+        ArrayDeque<Integer> list = Main.readAndSort();
+        ArrayDeque<Integer> expectedList = new ArrayDeque(Arrays.asList(2, 4, 6));
+        assertEquals(list.pollFirst(), expectedList.pollFirst());
+        assertEquals(list.pollFirst(), expectedList.pollFirst());
+        assertEquals(list.pollFirst(), expectedList.pollFirst());
     }
 
 }
