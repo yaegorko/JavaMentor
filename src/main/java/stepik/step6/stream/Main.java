@@ -4,52 +4,48 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.stream.Stream;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class Main {
+
+    private Map<String, Integer> resultMap = new HashMap<>();
 
     public static void main(String[] args) {
         Main main = new Main();
         main.parseString(main.readFromSystemIn());
     }
 
-    public String readFromSystemIn() {
-
-        String string;
-        String result = "";
-        // StringBuilder builder = null;
+    public Map<String, Integer> readFromSystemIn() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, UTF_8))) {
-            while ((string = reader.readLine()) != null) {
-                result += string;
-            }
-            //string = builder.toString();
+            resultMap = reader.lines()
+                    .map(String::toLowerCase)
+                    .flatMap(s -> Stream.of(s.replaceAll("[^a-zа-яё0-9]+", " ")))
+                    .flatMap(s -> Stream.of(s.split(" ")))
+                    .filter(s -> !"".equals(s))
+                    .collect(HashMap::new,
+                            (map, word) -> {
+                                if (map.containsKey(word)) {
+                                    map.put(word, map.get(word) + 1);
+                                } else {
+                                    map.put(word, 1);
+                                }
+                            },
+                            HashMap::putAll);
         } catch (NullPointerException | IOException e) {
             e.printStackTrace();
         }
-
-
-        return result;
+        return resultMap;
     }
 
-    public void parseString(String string) {
-
-        List<String> myList = new ArrayList<>(Arrays.asList(string.replaceAll("[^A-Za-zА-Яа-я0-9]+", " ").split(" ")));
-        Map<String, Integer> resultMap = myList.stream()
-                .map(String::toLowerCase)
-                .collect(HashMap::new,
-                        (map, word) -> {
-                            if (map.containsKey(word))
-                                map.put(word, map.get(word) + 1);
-                            else
-                                map.put(word, 1);
-                        },
-                        HashMap::putAll);
-        resultMap.entrySet().stream()
+    public void parseString(Map<String, Integer> map) {
+        map.entrySet().stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue()
                         .reversed()
                         .thenComparing(Map.Entry.comparingByKey()))
                 .limit(10)
-                .forEach(x -> System.out.println(x.toString().replaceAll("[^A-Za-zА-Яа-я)]+", "")));
+                .map(Map.Entry::getKey)
+                .forEach(x -> System.out.printf("%s%n", x));
     }
 }
