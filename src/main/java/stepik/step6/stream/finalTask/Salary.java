@@ -1,11 +1,12 @@
 package stepik.step6.stream.finalTask;
 
-public class Salary extends SendableTemplate  {
+import java.util.Objects;
 
-    Integer salary;
+public class Salary<T extends Integer> extends SendableTemplate<T>  {
 
-    public Salary(String from, String to, Integer salary) {
-        super(from, to);
-        this.salary = salary;
+    // Integer salary;
+
+    public Salary(String from, String to, T content) {
+        super(from, to, content);
     }
 }
