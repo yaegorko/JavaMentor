@@ -1,6 +1,4 @@
-package stepik.step6.stream.finalTask;
-
-import java.util.Objects;
+package stepik.step6.stream.finaltask;
 
 public class Salary<T extends Integer> extends SendableTemplate<T>  {
 

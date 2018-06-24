@@ -1,6 +1,4 @@
-package stepik.step6.stream.finalTask;
-
-import static org.junit.Assert.*;
+package stepik.step6.stream.finaltask;
 
 public class MailMessageTest {
 
