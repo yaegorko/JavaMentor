@@ -8,7 +8,7 @@ public class MailService<T> implements Consumer<Sendable> {
     Map<String, List<T>> mailBox = new HashMap<String, List<T>>() {
         @Override
         public List<T> get(Object key) {
-            return super.get(key) == null ? new ArrayList<T>() : super.get(key);
+            return super.get(key) == null ? new ArrayList<>() : super.get(key);
         }
     };
 

@@ -6,8 +6,6 @@ public class MailMessageTest {
     MailMessage secondMessage;
     MailMessage thirdMessage;
 
-
-
     public MailMessageTest() {
         firstMessage = new MailMessage(
                 "Robert Howard",
